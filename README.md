@@ -1,3 +1,3 @@
 # Data-Structures
-Data structures implemented in java
-Implementing data structures like stacks, queues etc in java to get a better understanding.
+I'm trying to implement basic data structures like stacks,queues,linked lists etc in java for practice.
+Along with implmenting them, I'll also be solving problems using these data structures.
