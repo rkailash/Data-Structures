@@ -1,0 +1,91 @@
+/*Implementing a circular queue. The rear pointer will circle around when its value exceeds
+ *the max number of elements of the array. 
+ */
+public class Queue
+{
+	private int maxSize;
+	private int[] array;
+	private int front;
+	private int rear;
+	int n;
+	
+	public Queue(int size)  //constructor
+	{
+		maxSize=size;
+		array=new int[maxSize];
+		front=0;
+		rear=-1;
+		n=0;
+		
+	}
+	
+	public void insert(int l)
+	{
+		if(!isFull())
+		{
+			if(rear==maxSize-1) rear=-1;
+			array[++rear]=l;
+			n++;
+		}
+		
+	}
+	
+	public int remove()
+	{
+		if(!isEmpty())
+		{
+		int temp=array[front++];
+		if(front==maxSize) front=0;
+		n--;
+		return temp;
+		}
+		else return -1;
+	}
+	
+	public long peek()
+	{
+		return array[front];
+	}
+	
+	public boolean isEmpty()
+	{
+		return (n==0);
+	}
+	
+	public boolean isFull()
+	{
+		return (n==maxSize);
+	}
+	
+	public int size()
+	{
+		return n;
+	}
+	
+	public static void main(String[] args)
+	{
+		Queue q=new Queue(6);
+		q.insert(1000);
+		q.insert(2000);
+		q.insert(3000);
+		q.insert(4000);
+		
+		System.out.println("Number removed from queue : " + q.remove());
+		System.out.println("Number removed from queue : " + q.remove());
+		System.out.println("Number removed from queue : " + q.remove());
+		
+		q.insert(5000);
+		q.insert(6000);
+		q.insert(7000); //Any insert after this results in wrap-around
+		q.insert(8000);
+		q.insert(9000);
+		System.out.print("Numbers in the queue ");
+		while(!q.isEmpty())
+		{
+			int n = q.remove();
+			
+			System.out.print(n+" ");
+		}
+		
+	}
+}
