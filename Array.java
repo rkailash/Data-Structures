@@ -1,3 +1,4 @@
+//A simple implementation of a dynamic array
 import java.util.Iterator;
 import java.util.Objects;
 
